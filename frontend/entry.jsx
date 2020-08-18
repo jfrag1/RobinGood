@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
+import Root from './components/root';
 import { createUser, loginUser, logoutUser } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,5 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.logoutUser = logoutUser;
   //TESTING
 
-  ReactDOM.render(<h1>React works!</h1>, root);
+  ReactDOM.render(<Root store={store}/>, root);
 });
