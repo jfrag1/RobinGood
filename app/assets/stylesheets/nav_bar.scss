@@ -1,0 +1,50 @@
+.nav-bar {
+  display: flex;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  height: 64px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 6px gray;
+}
+
+.nav-bar h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-left: 24px;
+}
+
+.nav-bar nav {
+  margin-right: 24px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-child {
+  margin-left: 30px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+#login-link:hover {
+  color: #29c446;
+  transition: color 0.3s;
+}
+
+#signup-link {
+  background-color: #29c446;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  height: 50px;
+  width: 150px;
+}
+
+#signup-link:hover {
+  background-color: #15ab30;
+  transition: background 0.3s;
+}

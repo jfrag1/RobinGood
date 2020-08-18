@@ -1,3 +1,115 @@
 // Place all the styles related to the api/Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.session-page-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+.col-1-2 {
+  width: 50%
+}
+
+.session-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 50px;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.session-img {
+  height: 100%;
+  display: block;
+}
+
+.session-header {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+label span {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.session-form input {
+  border: transparent;
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  margin-bottom: 10px;
+  height: 45px;
+  width: 450px;
+  padding-left: 15px;
+  box-sizing: border-box;
+  transition: background 0.3s;
+}
+
+.session-form input:hover {
+  background-color: white;
+  border: 1px solid #d7d9d8;
+}
+
+.session-form input:focus {
+  background-color: white;
+  border: 1px solid #29c446;
+  outline: none;
+  transition: border 0.6s;
+}
+
+.session-form button {
+  width: 150px;
+  height: 45px;
+  background-color: #29c446;
+  border: transparent;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  margin-top: 60px;
+  transition: background 0.4s;
+}
+
+.session-form button:hover {
+  background-color: #15ab30;
+  cursor: pointer;
+  transition: background 0.4s;
+}
+
+.session-errors {
+  color: red;
+  font-size: 12px;
+}
+
+.session-errors li {
+  margin: 10px;
+}
+
+.session-link {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.session-link span {
+  margin-right: 10px;
+}

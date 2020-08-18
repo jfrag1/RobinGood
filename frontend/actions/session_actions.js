@@ -19,7 +19,7 @@ const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER
 });
 
-const clearErrors = () => ({
+export const clearErrors = () => ({
   type: CLEAR_ERRORS
 });
 
