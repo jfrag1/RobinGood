@@ -6,6 +6,11 @@ class User < ApplicationRecord
   attr_reader :password
 
   after_initialize :ensure_session_token!
+  after_initialize :signup_bonus
+
+  def signup_bonus
+    self.buying_power ||= 1000000
+  end
 
   def self.find_by_credentials(username, password)
     user = self.find_by(username: username)
