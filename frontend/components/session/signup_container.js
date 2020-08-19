@@ -9,7 +9,9 @@ const mSTP = (state) => ({
 
 const mDTP = (dispatch) => ({
   action: (user) => dispatch(createUser(user)),
-  clearErrors: () => dispatch(clearErrors())
+  clearErrors: () => dispatch(clearErrors()),
+  guestLogin: () => dispatch(loginUser({ username: "Guest", password: "showmethemoney"}))
+                      .then(() => this.props.history.push('/portfolio'))
 });
 
 export default connect(mSTP, mDTP)(SessionForm);

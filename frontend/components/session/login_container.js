@@ -9,7 +9,8 @@ const mSTP = (state) => ({
 
 const mDTP = (dispatch) => ({
   action: (user) => dispatch(loginUser(user)),
-  clearErrors: () => dispatch(clearErrors())
+  clearErrors: () => dispatch(clearErrors()),
+  guestLogin: () => dispatch(loginUser({ username: "Guest", password: "showmethemoney"}))
 });
 
 export default connect(mSTP, mDTP)(SessionForm);
