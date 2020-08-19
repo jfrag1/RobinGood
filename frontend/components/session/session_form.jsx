@@ -34,7 +34,7 @@ class SessionForm extends React.Component {
       ['Sign Up', '/signup', "Don't have an account?"];
     return (
       <div className="session-page-container">
-        <img className="session-img col-1-2" src='/assets/money_background.jpg' />
+        <div className="session-img col-1-2" />
         <div className="session-form-container col-1-2">
           <button className="demo-user-button" onClick={this.props.guestLogin}>Log In as Demo User</button>
           <header className="session-header">Welcome to RobinGood</header>
