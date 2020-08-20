@@ -20,6 +20,17 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find_by(id: params[:id])
+    @user.buying_power += params[:cost]
+    if @user.buying_power >= 0
+      @user.save!
+      redirect_to api_user_url(@user)
+    else
+      render json: ['Insufficient funds'], status: 422
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:username, :password)

@@ -15,6 +15,9 @@
         };
       </script>
     <% end %>
+    <script type="text/javascript">
+      window.cloudiexAPIKey = "<%= Rails.application.credentials.cloudIEX[:api_key] %>"
+    </script>
   </head>
 
   <body>
