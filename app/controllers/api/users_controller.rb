@@ -1,5 +1,6 @@
 class Api::UsersController < ApplicationController
   before_action :require_logged_out, only: [:create]
+  skip_before_action :verify_authenticity_token
   
   def create
     @user = User.new(user_params)
@@ -27,7 +28,7 @@ class Api::UsersController < ApplicationController
       @user.save!
       redirect_to api_user_url(@user)
     else
-      render json: ['Insufficient funds'], status: 422
+      render json: ['Insufficient funding'], status: 422
     end
   end
 

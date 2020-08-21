@@ -8,6 +8,10 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token!
   after_initialize :signup_bonus!
 
+  has_many :holdings
+  has_many :assets, through: :holdings
+
+
   def signup_bonus!
     self.buying_power ||= 1000000
   end

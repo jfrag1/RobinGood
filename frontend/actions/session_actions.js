@@ -10,9 +10,9 @@ const receiveErrors = (errors) => ({
   errors
 });
 
-const receiveCurrentUser = (user) => ({
+const receiveCurrentUser = (res) => ({
   type: RECEIVE_CURRENT_USER,
-  user
+  res
 });
 
 const logoutCurrentUser = () => ({
@@ -25,14 +25,14 @@ export const clearErrors = () => ({
 
 export const createUser = (formUser) => (dispatch) => (
   APIUtil.createUser(formUser)
-    .then((user) => dispatch(receiveCurrentUser(user)))
+    .then((res) => dispatch(receiveCurrentUser(res)))
     .then(() => dispatch(clearErrors()))
     .fail(({ responseJSON }) => dispatch(receiveErrors(responseJSON)))
 );
 
 export const loginUser = (formUser) => (dispatch) => (
   APIUtil.loginUser(formUser)
-    .then((user) => dispatch(receiveCurrentUser(user)))
+    .then((res) => dispatch(receiveCurrentUser(res)))
     .then(() => dispatch(clearErrors()))
     .fail(({ responseJSON }) => dispatch(receiveErrors(responseJSON)))
 );
