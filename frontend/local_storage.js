@@ -6,9 +6,9 @@ export const loadState = () => {
     }
     return JSON.parse(serializedState);
   } catch(error) {
-    return undefined
+    return undefined;
   }
-}
+};
 
 export const saveState = (state) => {
   try {
@@ -17,4 +17,4 @@ export const saveState = (state) => {
   } catch(error) {
     
   }
-}
+};
