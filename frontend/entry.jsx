@@ -2,7 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import * as AssetAPI from './util/asset_util';
+import {
+  sendNewAssetPrice,
+  requestUnwatch,
+  updateQuantity,
+  createNewHolding
+} from './actions/asset_actions';
+import { logoutUser } from './actions/session_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -19,12 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
   //TESTING
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.fetchAsset = AssetAPI.fetchAsset;
-  window.updateAsset = AssetAPI.updateAsset;
-  window.watchAsset = AssetAPI.watchAsset;
-  window.buyNewAsset = AssetAPI.buyNewAsset;
-  window.updateHolding = AssetAPI.updateHolding;
-  window.deleteHolding = AssetAPI.deleteHolding;
+  window.logoutUser = logoutUser;
+  window.sendNewAssetPrice = sendNewAssetPrice;
+  window.requestUnwatch = requestUnwatch;
+  window.updateQuantity = updateQuantity;
+  window.createNewHolding = createNewHolding;
   //TESTING
 
   ReactDOM.render(<Root store={store}/>, root);

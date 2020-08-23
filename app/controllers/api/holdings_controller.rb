@@ -1,6 +1,9 @@
 class Api::HoldingsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  
   def create
     @holding = Holding.new(holding_params)
+    @holding.asset.update_price!
     if @holding.save
       render :show
     else
@@ -10,6 +13,7 @@ class Api::HoldingsController < ApplicationController
 
   def update
     @holding = Holding.find(params[:id])
+    @holding.asset.update_price!
     initial_quant = @holding.quantity
     @holding.quantity = params[:quantity]
     if @holding.save

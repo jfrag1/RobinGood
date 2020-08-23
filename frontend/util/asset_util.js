@@ -13,19 +13,11 @@ export const updateAsset = (assetId, newPrice) => (
   })
 );
 
-export const watchAsset = (assetId, userId) => (
+export const postHolding = (assetId, userId, quantity) => (
   $.ajax({
     url: '/api/holdings',
     method: 'POST',
-    data: { holding: { asset_id: assetId, user_id: userId, quantity: 0 } }
-  })
-);
-
-export const buyNewAsset = holding => (
-  $.ajax({
-    url: '/api/holdings',
-    method: 'POST',
-    data: { holding }
+    data: { holding: { asset_id: assetId, user_id: userId, quantity } }
   })
 );
 

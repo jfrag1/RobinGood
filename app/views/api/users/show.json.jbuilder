@@ -9,7 +9,7 @@ json.assets do
       json.extract! asset, :id, :ticker, :name, :recent_price
       json.holding_id holding.id
       json.quantity holding.quantity
-      json.seconds_since_update = Time.now - holding.updated_at
+      json.updated_at asset.updated_at.to_i
     end
   end
 end

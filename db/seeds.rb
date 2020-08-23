@@ -10,11 +10,20 @@ Holding.destroy_all
 User.destroy_all
 Asset.destroy_all
 
-
 Asset.create({ name: 'Apple', ticker: 'AAPL' })
 Asset.create({ name: 'Amazon', ticker: 'AMZN' })
 Asset.create({ name: 'Twitter', ticker: 'TWTR' })
-Asset.create({ name: 'Facebook', ticker: 'FB' })
+Asset.create({ name: 'Microsoft', ticker: 'MSFT' })
+Asset.create({ name: 'Citigroup', ticker: 'C' })
+Asset.create({ name: 'Cisco', ticker: 'CSCO' })
+Asset.create({ name: 'Google', ticker: 'GOOG' })
+Asset.create({ name: 'Chevron', ticker: 'CVX' })
+Asset.create({ name: 'Costco', ticker: 'COST' })
+Asset.create({ name: 'Comcast', ticker: 'CMCSA' })
+Asset.create({ name: 'Carvana', ticker: 'CVNA' })
+Asset.create({ name: 'Carnival', ticker: 'CCL' })
+Asset.create({ name: 'Charter Communications', ticker: 'CHTR' })
+
 
 User.create({ username: "Guest", password: "showmethemoney" })
 User.create({ username: "Jack", password: "jfjfjf" })

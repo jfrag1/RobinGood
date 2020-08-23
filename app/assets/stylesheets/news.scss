@@ -1,0 +1,37 @@
+.news-img {
+  height: 50px;
+  width: 80px;
+  padding-right: 20px;
+}
+
+.news-index {
+  padding-top: 75px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.news-index-item {
+  text-decoration: none;
+  color: black;
+}
+
+.news-index-item div {
+  height: 100px;
+  width: 650px;
+  padding: 20px 0;
+}
+
+.news-index-item section {
+  display: flex;
+  justify-content: space-between;
+}
+.news-index-item span {
+  width: 450px;
+}
+
+.news-index-item header {
+  margin-bottom: 20px;
+}
+
+.news-index-item div:hover {
+  background-color: lightgray;
+}

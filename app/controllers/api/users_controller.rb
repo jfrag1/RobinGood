@@ -1,6 +1,5 @@
 class Api::UsersController < ApplicationController
   before_action :require_logged_out, only: [:create]
-  skip_before_action :verify_authenticity_token
   
   def create
     @user = User.new(user_params)
@@ -15,6 +14,7 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     if @user
+      @user.assets.each { |asset| asset.update_price! }
       render :show
     else
       render json: ['User not found'], status: 404
