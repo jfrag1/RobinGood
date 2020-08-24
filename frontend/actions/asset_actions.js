@@ -12,9 +12,9 @@ const updateAssetPrice = (asset) => ({
   asset
 });
 
-const unwatchAsset = assetId => ({
+const unwatchAsset = ticker => ({
   type: UNWATCH_ASSET,
-  assetId
+  ticker
 });
 
 const updateHolding = (asset) => ({
@@ -39,7 +39,7 @@ export const sendNewAssetPrice = (assetId, newPrice) => dispatch => (
 
 export const requestUnwatch = holdingId => dispatch => (
   APIUtil.deleteHolding(holdingId)
-    .then(({ id }) => dispatch(unwatchAsset(id)))
+    .then(({ ticker }) => dispatch(unwatchAsset(ticker)))
 );
 
 export const updateQuantity = (holdingId, newQuantity) => dispatch => (

@@ -15,8 +15,8 @@ export const watchedAssetsReducer = (state = {}, action) => {
       if (action.res.assets) {
         Object.values(action.res.assets).forEach((asset) => {
           if (!asset.quantity) {
-            nextState[asset.id] = asset;
-            delete nextState[asset.id].quantity;
+            nextState[asset.ticker] = asset;
+            delete nextState[asset.ticker].quantity;
           }
         });
       }
@@ -24,29 +24,29 @@ export const watchedAssetsReducer = (state = {}, action) => {
     case LOGOUT_CURRENT_USER:
       return {};
     case UPDATE_ASSET_PRICE:
-      if (nextState[action.asset.id]) {
-        nextState[action.asset.id].recentPrice = action.asset.recentPrice;
+      if (nextState[action.asset.ticker]) {
+        nextState[action.asset.ticker].recentPrice = action.asset.recentPrice;
         return nextState;
       } else {
         return state;
       }
     case UNWATCH_ASSET:
-      delete nextState[action.assetId];
+      delete nextState[action.ticker]; /* change action / api call if needed */
       return nextState;
     case UPDATE_HOLDING:
       if (action.asset.quantity) {
-        delete nextState[action.asset.id];
+        delete nextState[action.asset.ticker];
       } else {
-        nextState[action.asset.id] = action.asset;
-        delete nextState[action.asset.id].quantity;
+        nextState[action.asset.ticker] = action.asset;
+        delete nextState[action.asset.ticker].quantity;
       }
       return nextState;
     case RECEIVE_NEW_ASSET:
       if (action.asset.quantity) {
         return state;
       } else {
-        nextState[action.asset.id] = action.asset;
-        delete nextState[action.asset.id].quantity;
+        nextState[action.asset.ticker] = action.asset;
+        delete nextState[action.asset.ticker].quantity;
         return nextState;
       }
     default:
@@ -63,7 +63,7 @@ export const ownedAssetsReducer = (state = {}, action) => {
       if (action.res.assets) {
         Object.values(action.res.assets).forEach((asset) => {
           if (asset.quantity) {
-            nextState[asset.id] = asset;
+            nextState[asset.ticker] = asset;
           }
         });
       }
@@ -71,22 +71,22 @@ export const ownedAssetsReducer = (state = {}, action) => {
     case LOGOUT_CURRENT_USER:
       return {};
     case UPDATE_ASSET_PRICE:
-      if (nextState[action.asset.id]) {
-        nextState[action.asset.id].recentPrice = action.asset.recentPrice;
+      if (nextState[action.asset.ticker]) {
+        nextState[action.asset.ticker].recentPrice = action.asset.recentPrice;
         return nextState;
       } else {
         return state;
       }
     case UPDATE_HOLDING:
       if (action.asset.quantity) {
-        nextState[action.asset.id] = action.asset;
+        nextState[action.asset.ticker] = action.asset;
       } else {
-        delete nextState[action.asset.id];
+        delete nextState[action.asset.ticker];
       }
       return nextState;
     case RECEIVE_NEW_ASSET:
       if (action.asset.quantity) {
-        nextState[action.asset.id] = action.asset;
+        nextState[action.asset.ticker] = action.asset;
         return nextState;
       } else {
         return state;

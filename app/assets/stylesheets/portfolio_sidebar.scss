@@ -7,8 +7,8 @@
   width: 275px;
   margin-top: 85px;
   margin-left: 720px;
-  min-height: 50vh;
-  max-height: 75vh;
+  min-height: 50px;
+  max-height: calc(100vh - 150px);
   font-family: sans-serif;
   color: black;
   box-shadow: 0 0 15px lightgray;
