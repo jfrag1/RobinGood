@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create, :show, :update]
     resource :session, only: [:create, :destroy]
-    resources :assets, only: [:update, :show]
     resources :holdings, only: [:create, :update, :destroy]
+    resources :assets, only: [:show]
+    get '/assets/search/:searchbar', to: 'assets#search', as: 'search_assets'
   end
 end

@@ -1,5 +1,4 @@
 class Api::HoldingsController < ApplicationController
-  skip_before_action :verify_authenticity_token
   
   def create
     @holding = Holding.new(holding_params)

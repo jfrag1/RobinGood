@@ -1,0 +1,1 @@
+json.array! @assets, :name, :ticker
