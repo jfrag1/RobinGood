@@ -155,22 +155,13 @@ Asset.create({ name: 'ZoomInfo', ticker: 'ZI' })
 Asset.create({ name: 'Zebra Technologies', ticker: 'ZBRA' })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 User.create({ username: "Guest", password: "showmethemoney" })
-User.create({ username: "Jack", password: "jfjfjf" })
-User.create({ username: "Tammy", password: "jfjfjf" })
-User.create({ username: "Luke", password: "jfjfjf" })
+
+
+Holding.create({ user_id: 1, asset_id: 50, quantity: 0})
+Holding.create({ user_id: 1, asset_id: 72, quantity: 0})
+Holding.create({ user_id: 1, asset_id: 28, quantity: 0})
+Holding.create({ user_id: 1, asset_id: 5, quantity: 10})
+Holding.create({ user_id: 1, asset_id: 100, quantity: 50})
+Holding.create({ user_id: 1, asset_id: 91, quantity: 1})
+
