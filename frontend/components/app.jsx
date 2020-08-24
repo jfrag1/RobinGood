@@ -2,19 +2,22 @@ import React from 'react';
 import LoginContainer from './session/login_container';
 import SignupContainer from './session/signup_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
+import LoggedOutNavBar from './nav_bar/logged_out_nav_bar';
 import Portfolio from './portfolio/portfolio';
-import { ExactProtectedRoute, ExactAuthRoute } from '../util/route_utils';
+import { ExactProtectedRoute, ExactAuthRoute, ProtectedRoute, AuthRoute } from '../util/route_utils';
 import { Route, Switch } from 'react-router-dom';
 
 const App = (props) => (
   <div className="app-root">
+    <ProtectedRoute path={["/portfolio", "/assets/:ticker"]} component={NavBarContainer} />
     <Switch>
-      <ExactAuthRoute path="/login" component={LoginContainer} />
-      <ExactAuthRoute path="/signup" component={SignupContainer} />
-      <Route path="/" component={NavBarContainer} />
+      <AuthRoute path="/login" component={LoginContainer} />
+      <AuthRoute path="/signup" component={SignupContainer} />
+      <ProtectedRoute path="/portfolio" component={Portfolio} />
+      <ProtectedRoute path="/assets/:ticker" component={() => <h1>hi</h1>} />
+      <AuthRoute path="/" component={LoggedOutNavBar} />
     </Switch>
-    <ExactAuthRoute path="/" component={() => <h1 className="home-placeholder">This is the home page placeholder</h1>} />
-    <ExactProtectedRoute path="/portfolio" component={Portfolio} />
+    {/* <ExactProtectedRoute path="/portfolio" component={Portfolio} /> */}
   </div>
 );
 

@@ -1,25 +1,25 @@
 import React from 'react';
+import SearchDropdown from './search_dropdown';
 import { Link } from 'react-router-dom';
 
-const NavBar = ({ user, logout }) => {
-  const display = user ? (
-    <nav>
-      <span className="nav-child">{user.username}</span>
-      <button className="nav-child" onClick={logout}>Log Out</button>
-    </nav>
-  ) : (
-    <nav>
-      <Link id="login-link" className="nav-child" to="/login">Log In</Link>
-      <Link id="signup-link" className="nav-child" to="/signup"><span>Sign Up</span></Link>
-    </nav>
-  );
 
-  return (
-    <section className="nav-bar">
-      <h1>RobinGood</h1>
-      {display}
-    </section>
-  );
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <section className="nav-bar">
+        <Link to="/portfolio"><h1 id="title-link">RobinGood</h1></Link>
+        <SearchDropdown />
+        <nav>
+          <span className="nav-child">{this.props.user.username}</span>
+          <button className="nav-child" onClick={this.props.logout}>Log Out</button>
+        </nav>
+      </section>
+    );
+  }
 }
 
 export default NavBar;

@@ -49,3 +49,80 @@
   background-color: #15ab30;
   transition: background 0.3s;
 }
+
+#title-link:hover {
+  color: #15ab30;
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  right: 235px;
+  width: 500px;
+  height: auto;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+
+.search-bar input {
+  outline: none;
+  width: 350px;
+  min-height: 30px;
+  border: none;
+}
+
+.search-bar svg {
+  padding-left: 25px;
+  padding-right: 5px;
+}
+
+.search-dropdown {
+  position: absolute;
+  width: inherit;
+  padding-top: 50px;
+  border: transparent;
+  border-radius: 3px;
+  box-sizing: border-box;
+  box-shadow: 0 0 15px lightgray;
+  background-color: white;
+  font-size: 13px;
+  z-index: 2;
+}
+
+.search-dropdown header {
+  color: gray;
+  padding-left: 25px;
+}
+
+.matched-assets {
+  padding: 20px 0;
+}
+
+.search-result {
+  padding: 10px 25px;
+}
+
+.search-result:hover {
+  background-color: #f2f4f7;
+}
+
+.search-result span:first-child {
+  display: inline-block;
+  width: 80px;
+}
+
+.search-bar:hover, .search-bar:focus-within {
+  border: transparent;
+  box-shadow: 0 0 15px lightgray;
+}
+
+#no-results {
+  padding: 50px 25px 25px 25px;
+}
