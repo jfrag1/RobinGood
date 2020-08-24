@@ -1,3 +1,91 @@
-.watch-list-item, .stock-index-item {
+.watch-list, .stock-index {
   text-decoration: none;
+  border-bottom: 1px solid #e6e9ed;
 }
+
+.portfolio-sidebar {
+  width: 275px;
+  margin-top: 85px;
+  margin-left: 720px;
+  min-height: 50vh;
+  max-height: 75vh;
+  font-family: sans-serif;
+  color: black;
+  box-shadow: 0 0 15px lightgray;
+  position: fixed;
+  overflow: scroll;
+}
+
+.portfolio-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.portfolio-sidebar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.no-stocks-msg {
+  padding: 12px 20px;
+}
+
+.sidebar-header-container {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e6e9ed;
+}
+
+.sidebar-header-container header {
+  font-size: 15px;
+  font-weight: bolder;
+  padding-left: 25px;
+}
+
+.stock-index-item {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  font-size: 12px;
+}
+
+.stock-index-item:hover {
+  background-color: #f2f4f7;
+}
+
+.stock-index-item div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 30px;
+}
+
+.ticker-name {
+  font-weight: bolder;
+}
+
+.number-shares {
+  color: #45484f;
+}
+
+.stock-index-item div:last-child {
+  align-items: flex-end;
+}
+
+.percent-change-red {
+  color: red;
+}
+
+.percent-change-green {
+  color: green;
+}
+
+.percent-change-black {
+  color: black;
+}
+
+
+

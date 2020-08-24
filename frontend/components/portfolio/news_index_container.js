@@ -7,7 +7,7 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-  requestNews: () => dispatch(requestNews(3))
+  requestNews: () => dispatch(requestNews(7))
 });
 
 export default connect(mSTP, mDTP)(NewsIndex);

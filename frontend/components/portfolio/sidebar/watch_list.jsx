@@ -1,15 +1,19 @@
 import React from 'react';
 import WatchListItem from './watch_list_item';
-import StockIndexItem from './stock_index_item';
 
 const WatchList = ({ stocks }) => {
+  const NoStocksMessage = stocks.length ? null :
+    (<p className="no-stocks-msg">Search stocks to add them to your watchlist</p>);
   return (
     <aside className="watch-list-container">
-      <header>Watchlist</header>
+      <div className="sidebar-header-container">
+        <header>Watchlist</header>
+      </div>
       <ul className="watch-list">
         {
-          stocks.map((stock) => (<StockIndexItem key={stock.id} stock={stock} />))
+          stocks.map((stock) => (<WatchListItem key={stock.id} stock={stock} />))
         }
+        { NoStocksMessage }
       </ul>
     </aside>
   );

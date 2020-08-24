@@ -15,6 +15,7 @@ import { loadState, saveState } from './local_storage';
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   let preloadedState = {};
+
   if (window.currentUser) {
     preloadedState.session = {};
     preloadedState.session.currentUser = window.currentUser;
@@ -22,8 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const persistedState = loadState();
   if (persistedState) {
     preloadedState.entities = persistedState.entities;
+    preloadedState.entities.news = [];
   }
-  console.log(persistedState);
+
   const store = configureStore(preloadedState);
   delete window.currentUser;
 
