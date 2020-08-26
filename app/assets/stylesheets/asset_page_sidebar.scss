@@ -17,6 +17,7 @@
 
 .green .active {
   color: #15ab30;
+  border-bottom: 2px solid #15ab30;
 }
 
 .red .form-tab:hover {
@@ -25,6 +26,7 @@
 
 .red .active {
   color: red;
+  border-bottom: 2px solid red;
 }
 
 .green button {
@@ -45,6 +47,14 @@
 
 .bold-me {
   font-weight: bold;
+}
+
+.form-tab {
+  height: 56px;
+  padding-top: 2px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
 }
 
 .form-tabs {
@@ -71,7 +81,7 @@
     font-weight: bolder;
   }
   button {
-    width: 90px;
+    width: 95px;
     height: 30px;
     border: transparent;
     border-radius: 3px;

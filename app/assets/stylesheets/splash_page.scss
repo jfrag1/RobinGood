@@ -1,0 +1,65 @@
+.splash-section-1 {
+  display: flex;
+  background-color: #caf024;
+
+}
+
+.section-1-image {
+  background-image: image_url("skyline2.png");
+  height: 620px;
+  background-size: cover;
+  width: 65%;
+}
+
+.buffer {
+  height: 64px;
+}
+
+main {
+  // background-color: #caf024;
+}
+
+.section-1-text {
+  width: 35%;
+  height: 620px;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: transparent;
+  border-radius: 10px;
+  header {
+    font-size: 54px;
+    margin-top: 150px;
+    margin-left: 85px;
+    width: 400px;
+  }
+  .subtext {
+    margin-top: 50px;
+    font-size: 24px;
+    margin-left: 85px;
+    width: 300px;
+    line-height: 1.3em;
+  }
+  #splash-signup-link {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    height: 50px;
+    width: 150px;
+    margin-top: 50px;
+    margin-left: 85px;
+  }
+  #splash-signup-link:hover {
+    background: #232423;
+    transition: background 0.3s;
+  }
+  .filler {
+    height: 93px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #231f20;
+  }
+}
