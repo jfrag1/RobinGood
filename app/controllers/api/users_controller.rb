@@ -23,12 +23,12 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    @user.buying_power += params[:cost]
+    @user.buying_power += params[:delta].to_i
     if @user.buying_power >= 0
       @user.save!
-      redirect_to api_user_url(@user)
+      render json: @user.buying_power
     else
-      render json: ['Insufficient funding'], status: 422
+      render json: ['Not enough buying power'], status: 422
     end
   end
 

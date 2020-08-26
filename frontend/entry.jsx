@@ -9,8 +9,9 @@ import {
   updateQuantity,
   createNewHolding
 } from './actions/asset_actions';
-import { logoutUser } from './actions/session_actions'
+import { logoutUser, clearErrors } from './actions/session_actions'
 import { loadState, saveState } from './local_storage';
+import { sendBuyingPowerChange, buyAsset, sellAsset } from './actions/asset_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -43,6 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.requestUnwatch = requestUnwatch;
   window.updateQuantity = updateQuantity;
   window.createNewHolding = createNewHolding;
+  window.sendBuyingPowerChange = sendBuyingPowerChange;
+  window.buyAsset = buyAsset;
+  window.sellAsset = sellAsset;
+  window.clearErrors = clearErrors;
   //TESTING
 
   ReactDOM.render(<Root store={store}/>, root);

@@ -4,3 +4,17 @@ export const fetchNews = (quant) => {
     method: 'GET'
   });
 };
+
+export const fetchCompanyData = (ticker) => (
+  $.ajax({
+    url: `https://cloud.iexapis.com/stable/stock/${ticker}/company?token=${window.cloudiexAPIKey}`,
+    method: 'GET'
+  })
+);
+
+export const fetchCompanyNews = (ticker) => (
+  $.ajax({
+    url: `https://cloud.iexapis.com/stable/stock/${ticker.toLowerCase()}/news/last/8?token=${window.cloudiexAPIKey}`,
+    method: 'GET'
+  })
+);

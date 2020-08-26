@@ -18,6 +18,10 @@ class SearchDropdown extends React.Component {
     document.addEventListener('mousedown', this.handleClickOutside);
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
   handleRedirect() {
     this.setState({ query: '', matchedAssets: null })
   }

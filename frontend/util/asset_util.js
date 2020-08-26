@@ -1,6 +1,6 @@
-export const fetchAsset = assetId => (
+export const fetchAsset = ticker => (
   $.ajax({
-    url: `/api/assets/${assetId}`,
+    url: `/api/assets/${ticker}`,
     method: 'GET'
   })
 );

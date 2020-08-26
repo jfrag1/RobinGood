@@ -1,0 +1,172 @@
+.asset-page-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 275px;
+  position: fixed;
+  margin-top: 10px;
+  margin-left: 750px;
+  height: 400px;
+  font-family: sans-serif;
+  box-shadow: 0 0 15px lightgray;
+}
+
+.green .form-tab:hover {
+  color: #15ab30;
+}
+
+.green .active {
+  color: #15ab30;
+}
+
+.red .form-tab:hover {
+  color: red;
+}
+
+.red .active {
+  color: red;
+}
+
+.green button {
+  background-color: #29c446;
+}
+
+.green button:hover {
+  background-color: #15ab30;
+}
+
+.red button {
+  background-color: #ff3d12;
+}
+
+.red button:hover {
+  background-color: #db3000;
+}
+
+.bold-me {
+  font-weight: bold;
+}
+
+.form-tabs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 275px;
+  height: 60px;
+  font-weight: bolder;
+  border-bottom: 1px solid #e6e9ed;
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.buy-form-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 275px;
+  height: 60px;
+  border-bottom: 1px solid #e6e9ed;
+  header {
+    font-weight: bolder;
+  }
+  button {
+    width: 90px;
+    height: 30px;
+    border: transparent;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    font-size: 11px;
+    transition: background 0.2s;
+  }
+  button:hover {
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  button:focus {
+    outline: none;
+  }
+}
+
+.sidebar-form {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button {
+    width: 230px;
+    height: 45px;
+    border: transparent;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+    transition: background 0.2s;
+  }
+  button:hover {
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+}
+
+.sidebar-form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 15px;
+  height: 55px;
+  width: 275px;
+  input {
+    border: transparent;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    height: 35px;
+    width: 65px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    text-align: right;
+    transition: background 0.2s;
+  }
+  input:hover {
+    background-color: white;
+    border: 1px solid #d7d9d8;
+  }
+  input:focus {
+    background-color: white;
+    border: 1px solid #29c446;
+    outline: none;
+    transition: border 0.2s;
+  }
+}
+
+.estimate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  width: 245px;
+  border-top: 1px solid #e6e9ed;
+  font-weight: bold;
+}
+
+.sidebar-form-errors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-size: 13px;
+  height: 50px;
+}
+
+.relevant-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  width: 275px;
+  height: 50px;
+  border-top: 1px solid #e6e9ed;
+
+}
