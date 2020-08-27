@@ -126,3 +126,87 @@
 #no-results {
   padding: 50px 25px 25px 25px;
 }
+
+.account-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 30px;
+  font-weight: bold;
+  .account-dropdown-header {
+    display: inline-block;
+    height: 30px;
+    margin-top: 15px;
+  }
+  .account-dropdown-header:hover {
+    cursor: pointer;
+    color: #15ab30;
+  }
+}
+
+.account-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 0 15px lightgray;
+  font-weight: 100;
+  right: 0;
+  top: 40px;
+  width: 260px;
+  height: 150px;
+  z-index: 1;
+  header {
+    margin-left: 15px;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
+.account-dropdown:hover .account-dropdown-content {
+  display: block;
+}
+
+.account-dropdown:hover .account-dropdown-header {
+  color: #15ab30;
+}
+
+.balances {
+  display: flex;
+  margin-left: 15px;
+  margin-top: 15px;
+  font-size: 12px;
+  padding-bottom: 15px;
+  .value {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}
+
+.balances > div:first-child {
+  margin-right: 25px;
+}
+
+.logout-button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+  border-top: 1px solid #e6e9ed;
+  svg {
+    padding: 0 7px 0 15px;
+  }
+  span {
+    font-size: 13px;
+    font-weight: bold;
+  }
+}
+
+.logout-button:hover {
+  cursor: pointer;
+  background-color: #f2f4f7;
+}
+
+#logged-in-nav-bar {
+  box-shadow: none;
+}

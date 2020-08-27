@@ -2,6 +2,7 @@ import React from 'react';
 import About from './about';
 import AssetNewsIndex from './asset_news_index';
 import SidebarContainer from './sidebar/sidebar_container';
+import AssetGraph from './asset_graph';
 import { fetchAsset } from '../../util/asset_util';
 
 class AssetPage extends React.Component {
@@ -29,6 +30,7 @@ class AssetPage extends React.Component {
       <main>
         <div className="asset-page-container">
           <div className="asset-page-main">
+            <AssetGraph ticker={this.props.match.params.ticker} />
             <About ticker={this.props.match.params.ticker} />
             <AssetNewsIndex ticker={this.props.match.params.ticker} />
           </div>

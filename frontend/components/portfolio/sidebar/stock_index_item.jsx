@@ -19,9 +19,11 @@ const StockIndexItem = ({ stock }) => {
         </div>
         <div>
           <span className="recent-price">
-            ${(stock.recentPrice / 100).toFixed(2).toLocaleString()}
+            ${(stock.recentPrice / 100).toLocaleString('en', { minimumFractionDigits: 2 })}
           </span>
-          <span className={percentChangeClass}>{`${stock.percentChange}%`}</span>
+          <span className={percentChangeClass}>
+            {`${Number(stock.percentChange).toFixed(2)}%`}
+          </span>
         </div>
       </li>
     </Link>

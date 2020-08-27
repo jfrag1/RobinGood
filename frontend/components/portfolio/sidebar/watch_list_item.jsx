@@ -19,7 +19,7 @@ const WatchListItem = ({ stock }) => {
             ${(stock.recentPrice / 100).toLocaleString('en', { minimumFractionDigits: 2 })}
           </span>
           <span className={percentChangeClass}>
-            {`${Number(stock.percentChange).toLocaleString('en', { minimumFractionDigits: 2 })}%`}
+            {`${Number(stock.percentChange).toFixed(2)}%`}
           </span>
         </div>
       </li>

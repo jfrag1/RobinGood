@@ -18,3 +18,10 @@ export const fetchCompanyNews = (ticker) => (
     method: 'GET'
   })
 );
+
+export const fetchOneDayGraphData = (ticker) => (
+  $.ajax({
+    url: `https://cloud.iexapis.com/stable/stock/${ticker.toLowerCase()}/intraday-prices?token=${window.cloudiexAPIKey}`,
+    method: 'GET'
+  })
+);

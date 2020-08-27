@@ -14,6 +14,7 @@
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
+    "recharts": "^1.8.5",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
@@ -46,5 +47,8 @@
   "bugs": {
     "url": "https://github.com/jfrag1/RobinGood/issues"
   },
-  "homepage": "https://github.com/jfrag1/RobinGood#readme"
+  "homepage": "https://github.com/jfrag1/RobinGood#readme",
+  "devDependencies": {
+    "babel-plugin-recharts": "^1.2.1"
+  }
 }
