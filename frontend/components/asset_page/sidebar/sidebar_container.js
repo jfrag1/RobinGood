@@ -14,7 +14,7 @@ const mSTP = (state, ownProps) => ({
   watched: state.entities.watchedAssets[ownProps.asset.ticker],
   user: state.session.currentUser,
   errors: state.errors.purchase,
-  asset: ownProps.asset,
+  asset: ownProps.asset
 });
 
 const mDTP = (dispatch, ownProps) => ({

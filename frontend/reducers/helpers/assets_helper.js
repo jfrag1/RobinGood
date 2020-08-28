@@ -12,7 +12,7 @@ export const getPricesAndChange = (tickerKeyToData) => {
       j++;
     }
     const startOfDayPrice = data[j].average;
-    mapTo['recentPrice'] = endOfDayPrice * 100;
+    mapTo['recentPrice'] = parseInt(endOfDayPrice * 100);
     mapTo['percentChange'] = ((endOfDayPrice / startOfDayPrice) - 1) * 100;
     return mapTo;
   });

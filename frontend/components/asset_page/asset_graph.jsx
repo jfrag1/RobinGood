@@ -18,6 +18,13 @@ class AssetGraph extends React.Component {
           }
           everyFiveMin.push(data[i]);
         }
+        let i = data.length - 1;
+        while(!data[i].average) {
+          i--;
+        }
+        if (data[i].minute !== everyFiveMin[everyFiveMin.length - 1].minute) {
+          everyFiveMin.push(data[i])
+        }
         const color = everyFiveMin[everyFiveMin.length - 1].average
             < everyFiveMin[0].average ? "#ff3d12" : "#29c446";
         this.setState({ data: everyFiveMin, color });

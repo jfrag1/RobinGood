@@ -14,7 +14,6 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     if @user
-      @user.assets.each { |asset| asset.update_price! }
       render :show
     else
       render json: ['User not found'], status: 404
