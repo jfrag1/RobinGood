@@ -12,6 +12,7 @@ class AssetPage extends React.Component {
     this.state = {
       asset_id: null,
       asset_ticker: null,
+      asset_name: null,
       recentPrice: null,
       percentChange: null
     };
@@ -19,7 +20,11 @@ class AssetPage extends React.Component {
 
   componentDidMount() {
     fetchAsset(this.props.match.params.ticker.toUpperCase())
-      .then((asset) => this.setState({ asset_id: asset.id, asset_ticker: asset.ticker }))
+      .then((asset) => this.setState({
+        asset_id: asset.id,
+        asset_ticker: asset.ticker,
+        asset_name: asset.name
+       }))
       .then(() => fetchOneDayGraphData(this.state.asset_ticker))
       .then((data) => {
         let i = data.length - 1;
@@ -42,7 +47,11 @@ class AssetPage extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.match.params.ticker !== prevProps.match.params.ticker) {
       fetchAsset(this.props.match.params.ticker.toUpperCase())
-        .then((asset) => this.setState({ asset_id: asset.id, asset_ticker: asset.ticker }))
+        .then((asset) => this.setState({
+          asset_id: asset.id,
+          asset_ticker: asset.ticker,
+          asset_name: asset.name
+        }))
         .then(() => fetchOneDayGraphData(this.state.asset_ticker))
         .then((data) => {
           let i = data.length - 1;
@@ -75,7 +84,11 @@ class AssetPage extends React.Component {
       <main>
         <div className="asset-page-container">
           <div className="asset-page-main">
-            <AssetGraph ticker={this.props.match.params.ticker} />
+            <AssetGraph
+              ticker={this.props.match.params.ticker}
+              name={this.state.asset_name}
+              price={this.state.recentPrice}
+              percentChange={this.state.percentChange} />
             <About ticker={this.props.match.params.ticker} />
             <AssetNewsIndex ticker={this.props.match.params.ticker} />
           </div>

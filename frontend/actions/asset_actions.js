@@ -41,9 +41,11 @@ const receiveNewBuyingPower = buyingPower => ({
   buyingPower
 });
 
-const receivePortfolioData = tickerKeyToData => ({
+const receivePortfolioData = (tickerKeyToData, ownedAssets, buyingPower) => ({
   type: RECEIVE_PORTFOLIO_DATA,
-  tickerKeyToData
+  tickerKeyToData,
+  ownedAssets,
+  buyingPower
 });
 
 export const sendNewAssetPrice = (assetId, newPrice) => dispatch => (
@@ -97,7 +99,7 @@ export const buyNewAsset = (userId, assetId, quantity, price) => dispatch => (
     .fail(({ responseJSON }) => dispatch(receivePurchaseErrors(responseJSON)))
 );
 
-export const updatePortfolio = (tickers) => dispatch => {
+export const updatePortfolio = (tickers, ownedAssets, buyingPower) => dispatch => {
   const graphFetches = [];
   const tickerKeyToData = {};
   tickers.forEach((ticker) => {
@@ -106,5 +108,5 @@ export const updatePortfolio = (tickers) => dispatch => {
     graphFetches.push(graphFetch);
   });
   return Promise.all(graphFetches).then(() => 
-    dispatch(receivePortfolioData(tickerKeyToData)));
+    dispatch(receivePortfolioData(tickerKeyToData, ownedAssets, buyingPower)));
 }
