@@ -1,5 +1,6 @@
 import * as APIUtil from '../util/asset_util';
 import updateUserBuyingPower from '../util/buying_power_util';
+import { fetchOneDayGraphData } from '../util/external_api_util';
 import { clearErrors } from './session_actions';
 
 export const UPDATE_ASSET_PRICE = 'UPDATE_ASSET_PRICE';
@@ -8,6 +9,7 @@ export const UPDATE_HOLDING = 'UPDATE_HOLDING';
 export const RECEIVE_PURCHASE_ERRORS = 'RECEIVE_PURCHASE_ERRORS';
 export const RECEIVE_NEW_ASSET = 'RECEIVE_NEW_ASSET';
 export const RECEIVE_NEW_BUYING_POWER = 'RECEIVE_NEW_BUYING_POWER';
+export const RECEIVE_PORTFOLIO_DATA = 'RECEIVE_PORTFOLIO_DATA';
 
 const updateAssetPrice = (asset) => ({
   type: UPDATE_ASSET_PRICE,
@@ -37,6 +39,11 @@ const receiveNewAsset = asset => ({
 const receiveNewBuyingPower = buyingPower => ({
   type: RECEIVE_NEW_BUYING_POWER,
   buyingPower
+});
+
+const receivePortfolioData = tickerKeyToData => ({
+  type: RECEIVE_PORTFOLIO_DATA,
+  tickerKeyToData
 });
 
 export const sendNewAssetPrice = (assetId, newPrice) => dispatch => (
@@ -89,3 +96,15 @@ export const buyNewAsset = (userId, assetId, quantity, price) => dispatch => (
     .then(() => dispatch(clearErrors()))
     .fail(({ responseJSON }) => dispatch(receivePurchaseErrors(responseJSON)))
 );
+
+export const updatePortfolio = (tickers) => dispatch => {
+  const graphFetches = [];
+  const tickerKeyToData = {};
+  tickers.forEach((ticker) => {
+    const graphFetch = fetchOneDayGraphData(ticker);
+    tickerKeyToData[ticker] = graphFetch;
+    graphFetches.push(graphFetch);
+  });
+  return Promise.all(graphFetches).then(() => 
+    dispatch(receivePortfolioData(tickerKeyToData)));
+}

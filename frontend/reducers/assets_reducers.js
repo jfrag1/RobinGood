@@ -3,8 +3,10 @@ import {
   UPDATE_ASSET_PRICE,
   UNWATCH_ASSET,
   UPDATE_HOLDING,
-  RECEIVE_NEW_ASSET
+  RECEIVE_NEW_ASSET,
+  RECEIVE_PORTFOLIO_DATA
 } from '../actions/asset_actions';
+import { getPricesAndChange } from './helpers/assets_helper';
 
 export const watchedAssetsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -49,6 +51,14 @@ export const watchedAssetsReducer = (state = {}, action) => {
         delete nextState[action.asset.ticker].quantity;
         return nextState;
       }
+    case RECEIVE_PORTFOLIO_DATA:
+      getPricesAndChange(action.tickerKeyToData).forEach((updateObject) => {
+        if (nextState[updateObject.ticker]) {
+          nextState[updateObject.ticker].recentPrice = updateObject.recentPrice;
+          nextState[updateObject.ticker].percentChange = updateObject.percentChange;
+        }
+      });
+      return nextState;
     default:
       return state;
   }
@@ -91,6 +101,14 @@ export const ownedAssetsReducer = (state = {}, action) => {
       } else {
         return state;
       }
+    case RECEIVE_PORTFOLIO_DATA:
+      getPricesAndChange(action.tickerKeyToData).forEach((updateObject) => {
+        if (nextState[updateObject.ticker]) {
+          nextState[updateObject.ticker].recentPrice = updateObject.recentPrice;
+          nextState[updateObject.ticker].percentChange = updateObject.percentChange;
+        }
+      });
+      return nextState;
     default:
       return state;
   }
