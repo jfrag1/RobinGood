@@ -26,6 +26,10 @@ In this project, Ruby on Rails acts as a backend API, and React handles handles 
 `cloudIEX:`<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;`api_key: {Your key here}`
 6. run `npm start` This starts webpack in development mode.
+
+### Features
+
+* Buy/sell stocks, as well as manage your watchlist
   
   
 Things you may want to cover:
