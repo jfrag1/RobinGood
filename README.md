@@ -30,6 +30,13 @@ In this project, Ruby on Rails acts as a backend API, and React handles handles 
 ### Features
 
 * Buy/sell stocks, as well as manage your watchlist
+
+![Buy Stock Form](/markdown_images/robingood_buy.JPG)
+![Sell Stock Form](/markdown_images/robingood_sell.JPG)
+
+* See recent news stories for a given company
+
+![Stock News Form](/markdown_images/robingood_news.JPG)
   
   
 Things you may want to cover:
