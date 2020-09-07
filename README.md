@@ -29,7 +29,7 @@ In this project, Ruby on Rails acts as a backend API, and React handles handles 
 
 ### Features
 
-* Buy/sell stocks, as well as manage your watchlist
+* Buy/sell stocks, as well as manage your watchlist. Stocks can be either owned or watched, not both. Selling all shares of a stock will automatically add it to your watchlist, and buying a stock on your watchlist will automatically remove it from your watchlist.
 
 ![Buy Stock Form](/markdown_images/robingood_buy.JPG)
 ![Sell Stock Form](/markdown_images/robingood_sell.JPG)
