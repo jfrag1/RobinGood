@@ -47,14 +47,14 @@ class NavBar extends React.Component {
             <div className="balances">
               <div className="total-value">
                 <div className="value">
-                  ${((this.props.holdingsValue + this.props.user.buyingPower) / 100)
+                  ${((this.props.holdingsValue + this.props.buyingPower) / 100)
                     .toLocaleString('en', { minimumFractionDigits: 2 })}
                 </div>
                 <span>Portfolio Value</span>
               </div>
               <div className="account-buying-power">
                 <div className="value">
-                  ${(this.props.user.buyingPower / 100)
+                  ${(this.props.buyingPower / 100)
                     .toLocaleString('en', { minimumFractionDigits: 2 })}
                 </div>
                 <span>Buying Power</span>

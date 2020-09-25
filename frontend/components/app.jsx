@@ -4,7 +4,7 @@ import SignupContainer from './session/signup_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import Portfolio from './portfolio/portfolio';
 import AssetPage from './asset_page/asset_page';
-import { ExactProtectedRoute, ExactAuthRoute, ProtectedRoute, AuthRoute } from '../util/route_utils';
+import { ProtectedRoute, AuthRoute } from '../util/route_utils';
 import { Route, Switch } from 'react-router-dom';
 import SplashPage from './splash_page/splash_page';
 

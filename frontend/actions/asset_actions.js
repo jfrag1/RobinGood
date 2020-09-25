@@ -58,14 +58,20 @@ export const requestUnwatch = holdingId => dispatch => (
     .then(({ ticker }) => dispatch(unwatchAsset(ticker)))
 );
 
-export const updateQuantity = (holdingId, newQuantity) => dispatch => (
+export const updateQuantity = (holdingId, newQuantity, price) => dispatch => (
   APIUtil.updateHolding(holdingId, newQuantity)
-    .then((asset) => dispatch(updateHolding(asset)))
+    .then((asset) => {
+      asset.recentPrice = price
+      dispatch(updateHolding(asset))
+    })
 );
 
-export const createNewHolding = (assetId, userId, quantity) => dispatch => (
+export const createNewHolding = (assetId, userId, quantity, price) => dispatch => (
   APIUtil.postHolding(assetId, userId, quantity)
-    .then((asset) => dispatch(receiveNewAsset(asset)))
+    .then((asset) => {
+      asset.recentPrice = price
+      dispatch(receiveNewAsset(asset))
+    })
 );
 
 export const sendBuyingPowerChange = (userId, delta) => dispatch => (
@@ -77,14 +83,17 @@ export const sendBuyingPowerChange = (userId, delta) => dispatch => (
 export const buyAsset = (userId, holdingId, oldQuant, quantBuying, price) => dispatch => (
   updateUserBuyingPower(userId, (-1 * quantBuying * price))
     .then((buyingPower) => dispatch(receiveNewBuyingPower(buyingPower)))
-    .then(() => dispatch(updateQuantity(holdingId, oldQuant + quantBuying)))
+    .then(() => dispatch(updateQuantity(holdingId, oldQuant + quantBuying, price)))
     .then(() => dispatch(clearErrors()))
     .fail(({ responseJSON }) => dispatch(receivePurchaseErrors(responseJSON)))
 );
 
 export const sellAsset = (userId, holdingId, oldQuant, quantSelling, price) => dispatch => (
   APIUtil.updateHolding(holdingId, (oldQuant - quantSelling))
-    .then((asset) => dispatch(updateHolding(asset)))
+    .then((asset) => {
+      asset.recentPrice = price
+      dispatch(updateHolding(asset))
+    })
     .then(() => updateUserBuyingPower(userId, (quantSelling * price)))
     .then((buyingPower) => dispatch(receiveNewBuyingPower(buyingPower)))
     .then(() => dispatch(clearErrors()))
@@ -94,7 +103,7 @@ export const sellAsset = (userId, holdingId, oldQuant, quantSelling, price) => d
 export const buyNewAsset = (userId, assetId, quantity, price) => dispatch => (
   updateUserBuyingPower(userId, (-1 * quantity * price))
     .then((buyingPower) => dispatch(receiveNewBuyingPower(buyingPower)))
-    .then(() => dispatch(createNewHolding(assetId, userId, quantity)))
+    .then(() => dispatch(createNewHolding(assetId, userId, quantity, price)))
     .then(() => dispatch(clearErrors()))
     .fail(({ responseJSON }) => dispatch(receivePurchaseErrors(responseJSON)))
 );
