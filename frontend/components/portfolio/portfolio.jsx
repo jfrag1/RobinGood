@@ -17,6 +17,7 @@ class Portfolio extends React.Component {
 
   render() {
     const graphData = this.props.portfolioGraph;
+    if (graphData.length === 0) return null;
     const valChange = graphData[graphData.length - 1].accountValue - graphData[0].accountValue;
     return (
       <main>
