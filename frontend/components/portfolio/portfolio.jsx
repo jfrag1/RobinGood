@@ -16,11 +16,18 @@ class Portfolio extends React.Component {
   }
 
   render() {
+    const graphData = this.props.portfolioGraph;
+    const valChange = graphData[graphData.length - 1].accountValue - graphData[0].accountValue;
     return (
       <main>
         <div className="portfolio-container">
           <section className="portfolio-main">
-            <PortfolioGraph data={this.props.portfolioGraph} buyingPower={this.props.buyingPower} />
+            <PortfolioGraph
+              data={graphData}
+              buyingPower={this.props.buyingPower}
+              change={valChange}
+              percentChange={(valChange / graphData[0].accountValue) * 100}
+              value={graphData[graphData.length - 1].accountValue / 100} />
             <NewsIndexContainer />
           </section>
           <Sidebar />

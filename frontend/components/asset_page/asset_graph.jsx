@@ -74,8 +74,6 @@ class AssetGraph extends React.Component {
   }
 
   render() {
-    // const change = this.state.data ? 
-    //   this.state.data[this.state.data.length - 1].average - this.state.data[0].average : 0;
     const sign = this.state.netChange < 0 ? '-' : '+';
     
     return (
