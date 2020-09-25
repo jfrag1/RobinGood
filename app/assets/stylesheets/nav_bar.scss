@@ -58,11 +58,13 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  right: 235px;
+  right: 140px;
   width: 500px;
   height: auto;
   border: 1px solid lightgray;
   border-radius: 3px;
+  background-color: white;
+  z-index: 1;
 }
 
 .input-container {
@@ -209,4 +211,69 @@
 
 #logged-in-nav-bar {
   box-shadow: none;
+}
+
+.about-me-dropdown {
+  position: relative;
+  left: calc(30vw - 300px);
+  font-weight: bold;
+  margin-top: 15px;
+
+}
+
+.about-me-dropdown-header {
+  display: inline-block;
+  height: 30px;
+}
+
+.about-me-dropdown-header:hover {
+  cursor: pointer;
+  color: #15ab30;
+}
+
+.about-me-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 0 15px lightgray;
+  right: 0;
+  font-size: 32px;
+  top: 25px;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
+
+.about-me-dropdown:hover .about-me-dropdown-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  svg {
+    margin: 5px;
+  }
+  svg:hover {
+    cursor: pointer;
+    color: #15ab30;
+    transition: color 0.15s;
+  }
+}
+
+.about-me-dropdown:hover .about-me-dropdown-header {
+  color: #15ab30;
+}
+
+@media screen and (max-width: 1310px) {
+  .search-bar {
+    max-width: calc(100vw - 810px);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .search-bar {
+    display: none;
+  }
+  .about-me-dropdown {
+    left: calc(30vw - 120px);
+  }
 }

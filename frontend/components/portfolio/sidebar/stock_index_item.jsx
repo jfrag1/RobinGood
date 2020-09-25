@@ -10,12 +10,15 @@ const StockIndexItem = ({ stock }) => {
   } else {
     percentChangeClass = "percent-change-black";
   }
+
+  const sharesText = stock.quantity === 1 ? "share" : "shares";
+
   return (
     <Link to={`/assets/${stock.ticker.toLowerCase()}`}>
       <li className="stock-index-item">
         <div>
           <span className="ticker-name">{stock.ticker}</span>
-          <span className="number-shares">{`${stock.quantity} shares`}</span>
+          <span className="number-shares">{`${stock.quantity} ${sharesText}`}</span>
         </div>
         <div>
           <span className="recent-price">

@@ -2,7 +2,15 @@ import React from 'react';
 import SearchDropdown from './search_dropdown';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { 
+  faSignOutAlt,
+  faUserCircle
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  faGithub,
+  faLinkedin,
+  faAngellist
+} from '@fortawesome/free-brands-svg-icons'
 
 
 class NavBar extends React.Component {
@@ -15,10 +23,23 @@ class NavBar extends React.Component {
       <section className="nav-bar" id="logged-in-nav-bar">
         <Link to="/portfolio"><h1 id="title-link">RobinGood</h1></Link>
         <SearchDropdown />
-        {/* <nav>
-          <span className="nav-child">{this.props.user.username}</span>
-          <button className="nav-child" onClick={this.props.logout}>Log Out</button>
-        </nav> */}
+        <div className="about-me-dropdown">
+          <span className="about-me-dropdown-header">About Me</span>
+          <div className="about-me-dropdown-content">
+            <a target="_blank" href="https://jackfragassi.com">
+              <FontAwesomeIcon icon={faUserCircle} />
+            </a>
+            <a target="_blank" href="https://github.com/jfrag1/RobinGood">
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+            <a target="_blank" href="https://www.linkedin.com/in/jack-fragassi-a8413b1b4/">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+            <a target="_blank" href="https://angel.co/u/jack-fragassi">
+              <FontAwesomeIcon icon={faAngellist} />
+            </a>
+          </div>
+        </div>
         <div className="account-dropdown">
           <span className="account-dropdown-header">Account</span>
           <div className="account-dropdown-content">

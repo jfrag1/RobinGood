@@ -38,7 +38,7 @@ class AssetNewsIndex extends React.Component {
         <ul className="asset-news-index">
           {
             this.state.news.map((story) => (
-              <Link to={story.url} key={story.datetime}>
+              <a target="_blank" href={story.url} key={story.datetime}>
                 <li className="asset-news-story">
                   <div>
                     <h4 className="asset-news-source">{story.source}</h4>
@@ -46,7 +46,7 @@ class AssetNewsIndex extends React.Component {
                   </div>
                   <img className="asset-news-img" src={story.image} />
                 </li>
-              </Link>
+              </a>
             ))
           }
         </ul>
