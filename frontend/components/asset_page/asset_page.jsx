@@ -14,7 +14,8 @@ class AssetPage extends React.Component {
       asset_ticker: null,
       asset_name: null,
       recentPrice: null,
-      percentChange: null
+      percentChange: null,
+      change: null
     };
   }
 
@@ -39,7 +40,8 @@ class AssetPage extends React.Component {
         const startOfDayPrice = data[j].average;
         this.setState({
           recentPrice: parseInt(endOfDayPrice * 100),
-          percentChange: ((endOfDayPrice / startOfDayPrice) - 1) * 100
+          percentChange: ((endOfDayPrice / startOfDayPrice) - 1) * 100,
+          change: endOfDayPrice - startOfDayPrice
         });
       });
   }
@@ -66,7 +68,8 @@ class AssetPage extends React.Component {
           const startOfDayPrice = data[j].average;
           this.setState({
             recentPrice: parseInt(endOfDayPrice * 100),
-            percentChange: ((endOfDayPrice / startOfDayPrice) - 1) * 100
+            percentChange: ((endOfDayPrice / startOfDayPrice) - 1) * 100,
+            change: endOfDayPrice - startOfDayPrice
           });
         });
     }
@@ -88,7 +91,8 @@ class AssetPage extends React.Component {
               ticker={this.props.match.params.ticker}
               name={this.state.asset_name}
               price={this.state.recentPrice}
-              percentChange={this.state.percentChange} />
+              percentChange={this.state.percentChange}
+              change={this.state.change} />
             <About ticker={this.props.match.params.ticker} />
             <AssetNewsIndex ticker={this.props.match.params.ticker} />
           </div>

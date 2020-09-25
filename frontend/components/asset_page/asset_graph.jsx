@@ -5,7 +5,7 @@ import { LineChart, Line, Tooltip, YAxis, XAxis } from 'recharts';
 class AssetGraph extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { data: null, color: null };
+    this.state = { data: null, color: null, val: 0, netChange: 0, perChange: 0 };
   }
 
   componentDidMount() {
@@ -54,18 +54,35 @@ class AssetGraph extends React.Component {
           this.setState({ data: everyFiveMin, color });
         });
     }
+    if (this.props.price !== prevProps.price) {
+      this.setState({
+        val: this.props.price / 100,
+        netChange: this.props.change,
+        perChange: this.props.percentChange
+      });
+    }
+  }
+
+  updateVal(lineData) {
+    if (lineData === null) return;
+    if (lineData.activePayload === undefined) return;
+    this.setState({
+      val: lineData.activePayload[0].value,
+      netChange: lineData.activePayload[0].value - this.state.data[0].average,
+      perChange: (lineData.activePayload[0].value / this.state.data[0].average - 1) * 100
+    });
   }
 
   render() {
-    const change = this.state.data ? 
-      this.state.data[this.state.data.length - 1].average - this.state.data[0].average : 0;
-    const sign = change < 0 ? '-' : '+';
+    // const change = this.state.data ? 
+    //   this.state.data[this.state.data.length - 1].average - this.state.data[0].average : 0;
+    const sign = this.state.netChange < 0 ? '-' : '+';
     
     return (
       <div className="asset-graph-container">
         <div className="company-name">{this.props.name}</div>
         <header>
-          {`$${(this.props.price / 100)
+          {`$${(this.state.val)
             .toLocaleString(
               'en',
               { minimumFractionDigits: 2, maximumFractionDigits: 2 }
@@ -73,20 +90,29 @@ class AssetGraph extends React.Component {
         </header>
         <div className="asset-change">
           <span className="bold-me">
-            {`${sign}$${Math.abs(change).toLocaleString(
+            {`${sign}$${Math.abs(this.state.netChange).toLocaleString(
               'en',
               { minimumFractionDigits: 2, maximumFractionDigits: 2 }
             )}`}
           </span>
           <span className="bold-me">
-            {`(${sign}${Math.abs(this.props.percentChange).toLocaleString(
+            {`(${sign}${Math.abs(this.state.perChange).toLocaleString(
               'en',
               { minimumFractionDigits: 2, maximumFractionDigits: 2 }
             )}%)`}
           </span>
           <span>Today</span>
         </div>
-        <LineChart width={630} height={220} data={this.state.data}>
+        <LineChart
+          width={630}
+          height={220}
+          data={this.state.data}
+          onMouseMove={(lineData) => this.updateVal(lineData)}
+          onMouseLeave={() => this.setState({
+            val: this.props.price / 100,
+            netChange: this.props.change,
+            perChange: this.props.percentChange
+          })}>
           <Tooltip
             offset={0}
             isAnimationActive={false}
