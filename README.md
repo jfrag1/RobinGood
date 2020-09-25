@@ -36,25 +36,8 @@ In this project, Ruby on Rails acts as a backend API, and React handles handles 
 
 * See links to recent news stories for a given company
 
-![Stock News Form](/markdown_images/robingood_news.JPG)
-  
-  
-Things you may want to cover:
+![Stock News](/markdown_images/robingood_news.JPG)
 
-* Ruby version
+* See all stocks you own and watch on your portfolio page
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![Stock List](/markdown_images/robingood_list.JPG)
