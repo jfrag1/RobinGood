@@ -1,7 +1,7 @@
-.asset-page-sidebar {
+.asset-sidebar-wrapper {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   width: 275px;
   position: fixed;
   margin-top: 10px;
@@ -9,6 +9,12 @@
   height: 400px;
   font-family: sans-serif;
   box-shadow: 0 0 15px lightgray;
+}
+
+.asset-page-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .green .form-tab:hover {
@@ -178,5 +184,11 @@
   width: 275px;
   height: 50px;
   border-top: 1px solid #e6e9ed;
+}
 
+.success-msg {
+  position: absolute;
+  font-size: 13px;
+  top: 317px;
+  color: #29c446;
 }

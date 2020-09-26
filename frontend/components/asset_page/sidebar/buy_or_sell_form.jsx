@@ -29,7 +29,7 @@ class BuyOrSellForm extends React.Component {
       shares: '',
       validInput: false,
       inputErrorDisplay: false,
-      estimatedCost: "$0.00"
+      estimatedCost: "$0.00",
     };
     this.selectTab = this.selectTab.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -78,11 +78,15 @@ class BuyOrSellForm extends React.Component {
     if (!this.state.validInput) {
       this.setState({ inputErrorDisplay: true });
     } else {
+      const sharesSuccessText = parseInt(this.state.shares) === 1 ? "share" : "shares";
       if (this.state.active === 'buy') {
         this.props.buyAsset(parseInt(this.state.shares));
+        this.props.setSuccessMessage(`You bought ${this.state.shares} ${sharesSuccessText} of ${this.props.asset.ticker}`);
       } else {
         this.props.sellAsset(parseInt(this.state.shares));
+        this.props.setSuccessMessage(`You sold ${this.state.shares} ${sharesSuccessText} of ${this.props.asset.ticker}`);
       }
+      if (this.state.timeout) clearTimeout(this.state.timeout);
     }
   }
 
@@ -94,13 +98,16 @@ class BuyOrSellForm extends React.Component {
 
     const [estimated, btnText] = this.state.active === "buy" ? 
       ["Cost", "Buy"] : ["Credit", "Sell"];
+
+    const sharesText = this.props.quantity === 1 ? "Share" : "Shares";
+
     const relevantInfo = this.state.active === "buy" ?(
       <span>
         ${(this.props.buyingPower / 100)
           .toLocaleString('en', { minimumFractionDigits: 2 }) + " "}
         Buying Power Available
       </span>
-    ) : (<span>{this.props.quantity} Shares Available</span>);
+    ) : (<span>{this.props.quantity} {sharesText} Available</span>);
     return (
       <aside className={`asset-page-sidebar ${color}`}>
         <Headers

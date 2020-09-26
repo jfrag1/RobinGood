@@ -50,7 +50,9 @@ class BuyOnlyForm extends React.Component {
     if (!this.state.validInput) {
       this.setState({ inputErrorDisplay: true });
     } else {
+      const sharesSuccessText = parseInt(this.state.shares) === 1 ? "share" : "shares";
       this.props.buyAction(parseInt(this.state.shares));
+      this.props.setSuccessMessage(`You bought ${this.state.shares} ${sharesSuccessText} of ${this.props.asset.ticker}`);
     }
   }
 
