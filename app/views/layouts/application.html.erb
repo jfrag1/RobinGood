@@ -20,6 +20,15 @@
     <script type="text/javascript">
       window.cloudiexAPIKey = "<%= Rails.application.credentials.cloudIEX[:api_key] %>"
     </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4WB2T53GG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-R4WB2T53GG');
+  </script>
   </head>
 
   <body>
